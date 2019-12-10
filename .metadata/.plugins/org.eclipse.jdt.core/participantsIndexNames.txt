@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+/Users/youjin/eclipse-ee-edwith/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2135730787.index
+/todo/src/main/resources
+/Users/youjin/eclipse-ee-edwith/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3328553817.index
+/todo/src/main/java
+/Users/youjin/eclipse-ee-edwith/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2840107380.index
+/todo/src/main/java

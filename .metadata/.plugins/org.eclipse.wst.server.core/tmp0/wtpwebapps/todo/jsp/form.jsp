@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/etc/form.css" />
+</head>
+<body>
+	<h1>할일 등록</h1>
+	<form action="TodoAddServlet" method="post">
+		<table>
+			<tr>
+				<td class="block_input">
+					<span class="label">어떤 일인가요?</span> <br />
+					<input type="text" name="title" placeholder="swift 공부하기(24자까지)" maxlength="24" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="block_input">
+					<span class="label">누가 할일 인가요?</span> <br />
+					<input type="text" name="name" placeholder="최유진" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="block_input">
+					<span class="label">우선순위를 선택하세요.</span> <br />
+					<input type="radio" name="sequence" value="1" required />1순위
+					<input type="radio" name="sequence" value="2" />2순위
+					<input type="radio" name="sequence" value="3" />3순위
+				</td>
+			</tr>
+			<tr>
+				<td class="block_input">
+					<input class="btn_skyblue_white" type="button" value="이전" onclick="historyBack()"/>
+					<input class="btn_skyblue_white" type="submit" value="제출" />
+				</td>
+			</tr>
+		</table>
+	</form>
+<script>
+	function historyBack() {
+		history.back();		
+	}
+</script>
+</body>
+</html>

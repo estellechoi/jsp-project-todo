@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+table, h1 {
+	width: 500px;
+	margin: auto;
+}
+
+h1 {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+.block_input {
+	height: 100px;
+}
+
+.label {
+	height: 30px;
+}
+
+input[type=text] {
+	width: 400px;
+	height: 30px;
+	margin-top: 10px;
+	padding: 0px 10px;
+}
+
+input[type=radio] {
+	margin: 10px 20px;
+}
+
+input[type=button] {
+	float: left;
+	margin-left: 10px;
+}
+
+input[type=submit] {
+	float: right;
+	margin-right: 10px;
+}
+
+.btn_skyblue_white {
+	background: #5085EB;
+	color: white;
+	padding: 5px 20px;
+	text-decoration: none;
+	font-size: 13px;
+	border: none;
+}

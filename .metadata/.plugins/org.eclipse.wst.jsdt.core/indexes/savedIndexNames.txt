@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/youjin/eclipse-ee-edwith/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+686981124.index
+513962213.index
+1320660178.index
+927221507.index
+4281393479.index
+4277741172.index
+2840107380.index

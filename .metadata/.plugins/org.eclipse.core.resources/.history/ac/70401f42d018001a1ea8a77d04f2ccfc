@@ -1,0 +1,75 @@
+package kr.co.todo.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.co.todo.dto.TodoDto;
+
+public class TodoDao {
+
+	String dbUrl = "jdbc:mysql://localhost:3306/youjin?useSSL=false&serverTimezone=UTC";
+	String dbUser = "estellechoi";
+	String dbPwd = "yk0425";
+	
+	// Main.jsp 에 표시될 전체 toto 목록
+	public List<TodoDto> getTodos() {
+		
+		// 드라이버 로드
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		List<TodoDto> list = new ArrayList<TodoDto>();
+		
+		String sql = "select id, name, regdate, sequence, title, type from todo";
+		
+		try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+				Statement stmt = conn.createStatement()){
+			
+			try (ResultSet rs = stmt.executeQuery(sql)) {
+				while (rs.next()) {
+					TodoDto todoDto = new TodoDto(rs.getInt("id"), rs.getString("name"), rs.getString("regdate"), rs.getInt("sequence"), rs.getString("title"), rs.getString("type"));
+					list.add(todoDto);
+				}
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return list;
+	}
+	
+	// 할 일 등록
+	public int addTodo(TodoDto todoDto) {
+		int insertCount = 0;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String sql = "insert into todo(title, name, sequence, regdate)";
+		sql = sql + " values(?,?,?, now())";
+		
+		
+		return insertCount;
+	}
+	
+	public int updateTodo(TodoDto todoDto) {
+		int updateCount = 0;
+		
+		
+		return updateCount;
+	}
+}

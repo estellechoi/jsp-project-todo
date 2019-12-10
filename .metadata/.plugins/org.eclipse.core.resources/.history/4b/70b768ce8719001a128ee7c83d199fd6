@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table, h1 {
+		width: 1000px;
+		margin: auto;
+	}
+	
+	h1 {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	
+	.block_input {
+		height: 100px;
+	}
+</style>
+</head>
+<body>
+	<h1>할일 등록</h1>
+	<form action="TodoAddServlet" method="post">
+		<table>
+			<tr>
+				<td>
+					<span>어떤 일인가요?</span> <br />
+					<input type="text" name="title" placeholder="swift 공부하기(24자까지)" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>누가 할일 인가요?</span> <br />
+					<input type="text" name="name" placeholder="최유진" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>우선순위를 선택하세요.</span> <br />
+					<input type="radio" name="sequence" value="1" />1순위
+					<input type="radio" name="sequence" value="2" />2순위
+					<input type="radio" name="sequence" value="3" />3순위
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" value="이전" />
+					<input type="submit" value="제출" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

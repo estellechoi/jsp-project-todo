@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+section {
+	display: flex;
+}
+
+ul {
+	margin-left: 10px;
+}
+
+li {
+	list-style-type: none;
+	margin-top: 10px;
+}
+
+header {
+	height: 100px;
+}
+
+#header_logo {
+	color: #333333;
+	font-weight: bold;
+	font-size: 25px;
+	float: left;
+	position: relative;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+	/* child 태그의 높이의 반만큼 - 이동 */
+}
+
+#header_btns {
+	float: right;
+	position: relative;
+	top: 50%;
+	left: -20px;
+	transform: translateY(-50%);
+}
+
+#header_btns>#btn_skyblue_white {
+	background: #5085EB;
+	color: white;
+	padding: 5px 20px;
+	text-decoration: none;
+	font-size: 13px;
+}
+
+.type_columns {
+	width: 400px;
+	padding: 30px 10px;
+	background: #333333;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.content_list {
+	position: relative;
+	width: 400px;
+	padding: 20px 10px;
+	background: #d2d2d2;
+	color: #333333;
+}
+
+.title {
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.content {
+	font-size: 13px;
+	margin-top: 20px;
+}
+
+.btn_update {
+	position: absolute;
+	top: 50px;
+	left: 370px;
+	text-decoration: none;
+	color: #333333;
+	font-weight: bold;
+}
+
+.btn_delete {
+	position: absolute;
+	top: 50px;
+	left: 370px;
+	text-decoration: none;
+	color: #ED6653;
+	font-weight: bold;
+}

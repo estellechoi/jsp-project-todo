@@ -1,0 +1,160 @@
+<%@page import="kr.co.todo.dto.TodoDto"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의 해야할 일들</title>
+<style>
+	section {
+		display: flex;		
+	}
+	
+	ul {
+		margin-left: 10px;
+	}
+	
+	li {
+		list-style-type: none;
+		margin-top: 10px;
+	}
+		
+	header {
+  		height: 100px;
+/*  		padding: 20px 20px 20px 20px; */
+		border: 1px solid red;
+	}
+
+	#header_logo {
+		color: #333333;
+		font-weight: bold;
+		font-size: 25px;
+		float: left;
+		border: 1px solid red;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	#header_btns {
+		float: right;
+		padding: 10px;
+		border: 1px solid red;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	#header_btns > #btn_skyblue_white {
+		background: #5085EB;
+		color: white;
+		padding: 5px 20px;
+		text-decoration: none;
+		font-size: 13px;
+	}
+	
+	.type_columns {
+		width: 400px;
+		padding: 30px 10px;
+		background: #333333;
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	.content_list {
+		position: relative;
+		width: 400px;
+		padding: 20px 10px;
+		background: #d2d2d2;
+		color: #333333;
+	}
+	
+	.title {
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+	
+	.content {
+		font-size: 13px;
+		margin-top: 20px;
+	}
+	.btn_update {
+		position: absolute;
+		top: 50px;
+		left: 370px;
+		text-decoration: none;
+		color: #333333;
+		font-weight: bold;
+	}
+	.btn_delete {
+		position: absolute;
+		top: 50px;
+		left: 370px;
+		text-decoration: none;
+		color: #ED6653;
+		font-weight: bold;
+	}
+	
+</style>
+</head>
+<body>
+	<header>
+		<div id="header_logo">나의 해야할 일들</div>
+		<nav id="header_btns">
+			<a id="btn_skyblue_white" href="TodoFormServlet">새로운 TODO 등록</a>
+		</nav>
+	</header>
+	<!-- section 시작  -->
+	<section>
+		<!-- TODO -->
+		<ul id="todo">
+			<li class="type_columns">TODO</li>
+			<c:forEach items="${requestScope.getTodos}" var="todoDto">
+				<!-- todoDto.type 이 'TODO' 인 것만 출력 -->
+				<c:if test="${todoDto.type eq 'TODO'}">
+					<li class="content_list" id="${todoDto.id}">
+						<span class="title">${todoDto.title}</span> <br />
+						<span class="content">등록날짜 : ${todoDto.regDate}, ${todoDto.name}, 우선순위 ${todoDto.sequence}</span>
+						<a class="btn_update" href="javascript:updateType('${todoDto.id}', '${todoDto.type}')">변경</a>
+					</li>
+				</c:if>
+			</c:forEach>
+		</ul>
+		<!-- DOING -->
+		<ul id="doing">
+			<li class="type_columns">DOING</li>
+			<c:forEach items="${requestScope.getTodos}" var="todoDto">
+				<!-- 'DOING' 인 것만 출력 -->
+				<c:if test="${todoDto.type eq 'DOING'}">
+					<li class="content_list" id="${todoDto.id}">
+						<span class="title">${todoDto.title}</span> <br />
+						<span class="content">등록날짜 : ${todoDto.regDate}, ${todoDto.name}, 우선순위 ${todoDto.sequence}</span>
+						<a class="btn_update" href="javascript:updateType('${todoDto.id}', '${todoDto.type}')">완료</a>
+					</li>
+				</c:if>
+			</c:forEach>
+		</ul>
+		<!-- DONE -->
+		<ul id="done">
+			<li class="type_columns">DONE</li>
+			<c:forEach items="${requestScope.getTodos}" var="todoDto">
+				<!-- 'DONE' 인 것만 -->
+				<c:if test="${todoDto.type eq 'DONE'}">
+					<li class="content_list" id="${todoDto.id}">
+						<span class="title">${todoDto.title}</span> <br />
+						<span class="content">등록날짜 : ${todoDto.regDate}, ${todoDto.name}, 우선순위 ${todoDto.sequence}</span>
+						<a class="btn_delete" href="javascript:updateType('${todoDto.id}', '${todoDto.type}')">지우기</a>
+					</li>
+				</c:if>
+			</c:forEach>
+		</ul>
+	</section>
+	<!-- js 경로를 찾을 때 ContextPath 넣지 않는 방법은 ? -->
+	<script type="text/javascript" src="<%=request.getContextPath()%>/etc/updatelist.js"></script>
+</body>
+</html>
